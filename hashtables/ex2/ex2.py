@@ -24,6 +24,7 @@ def reconstruct_trip(tickets, length):
 
     # if the sourece is "NONE", it is the first ticket
     key = flight["NONE"]
+    
 
     # If it is not the first ticket
     while key != "NONE":
