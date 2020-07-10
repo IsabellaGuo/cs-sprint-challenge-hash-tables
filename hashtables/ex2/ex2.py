@@ -13,25 +13,12 @@ def reconstruct_trip(tickets, length):
 
     """
     # Your code here
-    flight = dict()
-    route = []
-
-    for i in range(length):
-        key = tickets[i].source
-        value = tickets[i].destination
-
-        flight[key] = value
-
-    # if the sourece is "NONE", it is the first ticket
-    key = flight["NONE"]
-    
-
-    # If it is not the first ticket
-    while key != "NONE":
-        route.append(key)
-
-        key = flight[key]
-    route.append(key)
-
+    source_map = dict()
+    for ticket in tickets:
+        source_map[ticket.source] = ticket.destination
+    route = [None] * length
+    route[0] = source_map["NONE"]
+    for i in range(1, len(route)):
+        route[i] = source_map[route[i-1]]
 
     return route
