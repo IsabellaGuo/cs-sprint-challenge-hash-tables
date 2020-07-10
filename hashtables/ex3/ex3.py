@@ -3,18 +3,15 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    integers = {}
     result = []
-    cache = {}
-    for array in arrays:
-        for number in array:
-            if number not in cache:
-                cache[number] = 1
+    for x in arrays:
+        for y in x:
+            if y not in integers:
+                integers[y] = 0
             else:
-                cache[number] += 1
-
-    for key,value in cache.items():
-        if value > 1:
-            result.append(key)
+                result.append(y) 
+    result= list(dict.fromkeys(result))
 
     return result
 
